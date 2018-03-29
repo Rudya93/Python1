@@ -3,7 +3,6 @@
 
 #for i in range(3):
 a = input("input matrix 1 line: ")
-
 if len(a) > 3:
     print ("Error! Only 3 characters allowed!")
 b = input ("input matrix 2 line: ")

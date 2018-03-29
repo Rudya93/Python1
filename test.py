@@ -1,3 +1,12 @@
+a = 'ZENOVW'
+b = sorted(a)
+print (b)
+#['E', 'N', 'O', 'V', 'W', 'Z']
+c = ''.join(b)
+print (c)
+
+
+
 import string
 #print (string.ascii_uppercase)
 for c in string.ascii_letters:
