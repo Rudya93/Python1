@@ -1,3 +1,6 @@
 #def decToBin()
-for i in
-    print (bin(6)[2:])
+
+a = input("Please input integer decimal value: ")
+a = (int(a))
+#for i in
+print (bin(a)[2:])
