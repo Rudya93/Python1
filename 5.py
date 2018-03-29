@@ -4,8 +4,8 @@ a=[ 4, 9, 7 ]
 def histogram():
 
     for i in a:
-        l = ("*"*i)
-        print(l)
+        j = ("*"*i)
+        print(j)
 
 
 histogram()

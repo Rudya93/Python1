@@ -1,9 +1,27 @@
-a = []
-i=0
-for i in range(int(3)):
-    b = input("input matrix 1: ")
-    a.append(b)
-print (a)
+import string
+#print (string.ascii_uppercase)
+for c in string.ascii_letters:
+    print(c)
+
+s = 'fooУБРАТЬbarОТСЮДАbazНЕЛАТИНСКОЕ'
+s2 = ''.join(c for c in s if c in string.ascii_letters)
+print(s2)
+#chr(65)
+#'A'
+#chr(122)
+#'z'
+#print(chr(128522))
+
+
+
+
+
+#a = []
+#i=0
+#for i in range(int(3)):
+#    b = input("input matrix 1: ")
+#    a.append(b)
+#print (a)
 #num_array[:, i]
 
   #a = [1, 2, 3]
