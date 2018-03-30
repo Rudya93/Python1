@@ -1,5 +1,5 @@
 a = list('player')
-a = a[1:] + [0]
+a = a[1:]+a[:1]
 print (a)
 
 
