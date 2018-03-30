@@ -3,13 +3,13 @@
 
 #for i in range(3):
 a = input("input matrix 1 line: ")
-if len(a) > 3:
+if len(str(a)) > 3:
     print ("Error! Only 3 characters allowed!")
 b = input ("input matrix 2 line: ")
-if len(b) > 3:
+if len(str(b)) > 3:
     print ("Error! Only 3 characters allowed!")
 c = input ("input matrix 3 line: ")
-if len(c) > 3:
+if len(str(c)) > 3:
        print ("Error! Only 3 characters allowed!")
 #a=a.split()
 print("Input Matrix")
