@@ -23,7 +23,7 @@ r = a.count('q')
 s = a.count('r')
 t = a.count('s')
 w = a.count('t')
-print(('a' * b + 'b' * c))
+print('a' * b + 'b' * c + 'c' * d + 'd' * e + 'e' * f + 'f' * g + 'g' * l + 'l' * h)
 
 
 #print (b)
