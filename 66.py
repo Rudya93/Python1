@@ -1,5 +1,7 @@
-a = list('player')
-a = a[1:]+a[:1]
+a = input("Please input string: ")
+b = input("Please input integer value: ")
+b = (int(b))
+a = a[b:]+a[:b]
 print (a)
 
 
