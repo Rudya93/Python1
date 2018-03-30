@@ -2,8 +2,8 @@
 def isPalindrome():
     a = ("radar"[::-1])
     if a == (a[::-1]):
-        print True
+        print (True)
     else :
-        print False
+        print (False)
 
 isPalindrome()
