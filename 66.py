@@ -2,8 +2,8 @@
 c=[]
 #a = 'mnopqrstuvwxy'
 a = input("Please input string: ")
-# b = input("Please input integer value: ")
-# b = (int(b))
+b = input("Please input integer value: ")
+b = (int(b))
 # a = a[b:]+a[:b]
 # print (a)
 
@@ -15,7 +15,7 @@ my_newstring = (my_string[:len(a)] + a + my_string[len(a):])
 #print(my_string [:len(a)] + a + my_string [len(a):])
 i = 0
 for i in range(len(a)):
-    c.append(my_newstring[i + 1])
+    c.append(my_newstring[i + b])
 #for i in range(len(a)):
     #if a[i] == my_string[i]:
      #   c.append(my_string[i-1])
