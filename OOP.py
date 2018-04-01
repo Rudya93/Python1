@@ -23,6 +23,7 @@ class Person:
         self.job = job
         self.pay = pay
 
+
     def lastName(self):
         return self.name.split()[-1]
 
@@ -30,7 +31,21 @@ class Person:
         self.pay = int(self.pay * (1 + percent))
 
     def __str__(self):
-        return '[Person: %s, %s]' % (self.name, self.pay)
+        return '[Person: %s, %s, %s]' % (self.name,  self.job, self.pay)
+
+class Dev(Person):
+    # def __init__(self, name, pay):
+    #     Person.__init__(self, name, 'mgr', pay)
+    #
+    # def giveRaise(self, percent, bonus=100):
+    #     Person.giveRaise(self, percent + bonus)
+
+class Design(Person):
+    # def __init__(self, name, pay):
+    #     Person.__init__(self, name, 'mgr', pay)
+    #
+    # def giveRaise(self, percent, bonus=100):
+    #     Person.giveRaise(self, percent + bonus)
 
 
 class Manager(Person):
@@ -39,3 +54,18 @@ class Manager(Person):
 
     def giveRaise(self, percent, bonus=100):
         Person.giveRaise(self, percent + bonus)
+
+ivan = Person('Ivan Petrov', job='prog', pay=40000)
+john = Person('John Sidorov', job='dev', pay=60000)
+print(ivan)
+print(john)
+john.giveRaise(.10)
+print(john)
+tom = Manager('Tom Jones', 30000)
+tom.giveRaise(.10)
+print(tom)
+
+Spl = Person('Petya', job='put', pay=100)
+Man = Manager(Person, pay=400)
+
+print (Spl, Man)
