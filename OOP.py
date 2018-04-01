@@ -18,10 +18,11 @@
 #
 #
 class Person:
-    def __init__(self, name, job=None, pay=0):
+    def __init__(self, name, job=None, pay=0, exp=0):
         self.name = name
         self.job = job
         self.pay = pay
+        self.exp = exp
 
 
     def lastName(self):
@@ -33,14 +34,22 @@ class Person:
     def __str__(self):
         return '[Person: %s, %s, %s]' % (self.name,  self.job, self.pay)
 
-class Dev(Person):
+    def exper(self):
+        if 2 <= self.exp < 5:
+            self.pay = self.pay + 200
+        elif self.exp >= 5:
+            self.pay = self.pay * 1.2 + 500
+
+
+
+#class Dev(Person):
     # def __init__(self, name, pay):
     #     Person.__init__(self, name, 'mgr', pay)
     #
     # def giveRaise(self, percent, bonus=100):
     #     Person.giveRaise(self, percent + bonus)
 
-class Design(Person):
+#class Design(Person):
     # def __init__(self, name, pay):
     #     Person.__init__(self, name, 'mgr', pay)
     #
@@ -55,15 +64,17 @@ class Manager(Person):
     def giveRaise(self, percent, bonus=100):
         Person.giveRaise(self, percent + bonus)
 
-ivan = Person('Ivan Petrov', job='prog', pay=40000)
+ivan = Person('Ivan Petrov', job='prog', pay=4, exp=3)
 john = Person('John Sidorov', job='dev', pay=60000)
 print(ivan)
-print(john)
-john.giveRaise(.10)
-print(john)
-tom = Manager('Tom Jones', 30000)
-tom.giveRaise(.10)
-print(tom)
+ivan.exper()
+print(ivan)
+# print(john)
+# john.giveRaise(.10)
+# print(john)
+# tom = Manager('Tom Jones', 30000)
+# tom.giveRaise(.10)
+# print(tom)
 
 Spl = Person('Petya', job='put', pay=100)
 Man = Manager(Person, pay=400)
