@@ -18,12 +18,13 @@
 #
 #
 class Person:
-    def __init__(self, name, job=None, pay=0, exp=0, effcoeff=0, man=None):
+    def __init__(self, name, job=None, pay=0, exp=0, effcoeff=0, workingpeople=0, man=None):
         self.name = name
         self.job = job
         self.pay = pay
         self.exp = exp
         self.effcoeff = effcoeff
+        self.workingpeple = workingpeople
         self.man = man
 
 
@@ -63,25 +64,33 @@ class Design(Person):
 
      def salary(self):
          self.pay = self.pay * self.effcoeff
-         print('[Person: %s got salary: %s$]' % (self.name, self.pay))
+         print('[Designer: %s got salary: %s$]' % (self.name, self.pay))
 
 class Manager(Person):
-    def __init__(self, name, pay, exp):
-        Person.__init__(self, name, 'mgr', pay, exp)
+    def __init__(self, name, pay, workingpeple, exp):
+        Person.__init__(self, name, 'mgr', pay, workingpeple, exp)
 
     def giveRaise(self, percent, bonus=100):
         Person.giveRaise(self, percent + bonus)
 
+    def salary(self):
+        if self.workingpeple >= 5:
+           self.pay = self.pay + 200
+        elif self.exp >= 10:
+            self.pay = self.pay + 300
+        print('[Manager: %s got salary: %s$]' % (self.name, self.pay))
 
 ivan = Dev('Ivan Petrov',pay=4, exp=3, man='Vasya')
 john = Design('John Sidorov', pay=250, exp=2, effcoeff=10, man ='Petya')
-Petr = Manager('Mysha Pupkin', pay=100, exp=5)
+Petr = Manager('Mysha Pupkin', pay=100, workingpeple=16, exp=5)
 print(ivan)
 print(john)
 ivan.exper()
-ivan.salary()
 john.exper()
+Petr.exper()
+ivan.salary()
 john.salary()
+Petr.salary()
 print(ivan)
 print(john)
 print(Petr)
