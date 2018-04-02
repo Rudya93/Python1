@@ -18,11 +18,12 @@
 #
 #
 class Person:
-    def __init__(self, name, job=None, pay=0, exp=0, man=None):
+    def __init__(self, name, job=None, pay=0, exp=0, effcoeff=0, man=None):
         self.name = name
         self.job = job
         self.pay = pay
         self.exp = exp
+        self.effcoeff = effcoeff
         self.man = man
 
 
@@ -33,42 +34,54 @@ class Person:
         self.pay = int(self.pay * (1 + percent))
 
     def __str__(self):
-        return '[Person: %s, job: %s, salary: %s, manager: %s]' % (self.name,  self.job, self.pay, self.man)
+        return '[Person: %s, job: %s, salary: %s, experience= %s, manager: %s]' % (self.name,  self.job, self.pay, self.exp, self.man)
 
     def exper(self):
         if 2 <= self.exp < 5:
-            self.pay = self.pay + 200
+           self.pay = self.pay + 200
         elif self.exp >= 5:
             self.pay = self.pay * 1.2 + 500
+        return self.pay
+
+    def salary(self):
+        print('[Person: %s got salary: %s$]' % (self.name, self.pay))
 
 
 
 class Dev(Person):
-     def __init__(self, name, pay):
-         Person.__init__(self, name, 'Dev', pay)
+     def __init__(self, name, pay, exp, man ):
+         Person.__init__(self, name, 'Dev', pay, exp, man)
 
 
 
 class Design(Person):
-     def __init__(self, name, pay):
-         Person.__init__(self, name, 'Des', pay)
+     def __init__(self, name, pay, exp, effcoeff, man):
+         Person.__init__(self, name, 'Des', pay, exp, effcoeff, man)
 
      def giveRaise(self, percent, bonus=100):
          Person.giveRaise(self, percent + bonus)
 
+     def salary(self):
+         self.pay = self.pay * self.effcoeff
+         print('[Person: %s got salary: %s$]' % (self.name, self.pay))
 
 class Manager(Person):
-    def __init__(self, name, pay):
-        Person.__init__(self, name, 'mgr', pay)
+    def __init__(self, name, pay, exp):
+        Person.__init__(self, name, 'mgr', pay, exp)
 
     def giveRaise(self, percent, bonus=100):
         Person.giveRaise(self, percent + bonus)
 
-ivan = Person('Ivan Petrov', job='dev', pay=4, exp=3, man='Vasya')
-john = Person('John Sidorov', job='dev', pay=60000, exp=2, man ='Petya')
-Petr = Person('Mysha Pupkin', job ='mgr', pay=100, exp=5)
+
+ivan = Dev('Ivan Petrov',pay=4, exp=3, man='Vasya')
+john = Design('John Sidorov', pay=250, exp=2, effcoeff=10, man ='Petya')
+Petr = Manager('Mysha Pupkin', pay=100, exp=5)
 print(ivan)
+print(john)
 ivan.exper()
+ivan.salary()
+john.exper()
+john.salary()
 print(ivan)
 print(john)
 print(Petr)
