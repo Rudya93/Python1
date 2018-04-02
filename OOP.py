@@ -64,11 +64,14 @@ class Manager(Person):
     def giveRaise(self, percent, bonus=100):
         Person.giveRaise(self, percent + bonus)
 
-ivan = Person('Ivan Petrov', job='prog', pay=4, exp=3, man='Vasya')
-john = Person('John Sidorov', job='dev', pay=60000)
+ivan = Person('Ivan Petrov', job='dev', pay=4, exp=3, man='Vasya')
+john = Person('John Sidorov', job='dev', pay=60000, exp=2, man ='Petya')
+Petr = Person('Mysha Pupkin', job ='mgr', pay=100, exp=5)
 print(ivan)
 ivan.exper()
 print(ivan)
+print(john)
+print(Petr)
 # print(john)
 # john.giveRaise(.10)
 # print(john)
