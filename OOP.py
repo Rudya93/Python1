@@ -17,7 +17,7 @@
 # Redefine string representation for employee as follows: "@firstName@ @secondName@, manager:@manager secondName@, experiance:@experiance@"
 #
 #
-class Person:
+class Depart:
     def __init__(self, name, job=None, pay=0, exp=0, effcoeff=0, workingpeople=0, man=None):
         self.name = name
         self.job = job
@@ -49,29 +49,29 @@ class Person:
 
 
 
-class Dev(Person):
+class Dev(Depart):
      def __init__(self, name, pay, exp, man ):
-         Person.__init__(self, name, 'Dev', pay, exp, man)
+         Depart.__init__(self, name, 'Dev', pay, exp, man)
 
 
 
-class Design(Person):
+class Design(Depart):
      def __init__(self, name, pay, exp, effcoeff, man):
-         Person.__init__(self, name, 'Des', pay, exp, effcoeff, man)
+         Depart.__init__(self, name, 'Des', pay, exp, effcoeff, man)
 
      def giveRaise(self, percent, bonus=100):
-         Person.giveRaise(self, percent + bonus)
+         Depart.giveRaise(self, percent + bonus)
 
      def salary(self):
          self.pay = self.pay * self.effcoeff
          print('[Designer: %s got salary: %s$]' % (self.name, self.pay))
 
-class Manager(Person):
+class Manager(Depart):
     def __init__(self, name, pay, workingpeple, exp):
-        Person.__init__(self, name, 'mgr', pay, workingpeple, exp)
+        Depart.__init__(self, name, 'mgr', pay, workingpeple, exp)
 
     def giveRaise(self, percent, bonus=100):
-        Person.giveRaise(self, percent + bonus)
+        Depart.giveRaise(self, percent + bonus)
 
     def salary(self):
         if self.workingpeple >= 5:
