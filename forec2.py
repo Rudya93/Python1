@@ -9,7 +9,7 @@ vpc = ec2.Vpc("vpc-f474879c")
 # Get information for all running instances
 running_instances = ec2.instances.filter(Filters=[{
     'Name': 'instance-state-name',
-    'Values': ['running']}])
+    'Values': ['running','stopped']}])
 
 ec2info = defaultdict()
 for instance in running_instances:
